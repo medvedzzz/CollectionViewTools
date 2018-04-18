@@ -6,20 +6,9 @@
 
 import UIKit.UICollectionView
 
-public enum ReusableViewType {
-    case header, footer
-    
-    public var kind: String {
-        switch self {
-        case .header: return UICollectionElementKindSectionHeader
-        case .footer: return UICollectionElementKindSectionFooter
-        }
-    }
-}
-
 public protocol CollectionViewReusableViewItemProtocol {
     
-    var type: ReusableViewType { get set }
+    var kind: String { get set }
     
     func size(for collectionView: UICollectionView, with layout: UICollectionViewLayout) -> CGSize
     func view(for collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionReusableView

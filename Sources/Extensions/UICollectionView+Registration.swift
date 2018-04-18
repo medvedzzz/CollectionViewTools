@@ -39,8 +39,8 @@ public extension UICollectionView {
         return dequeueReusableCell(withReuseIdentifier: NSStringFromClass(T.self), for: indexPath) as! T
     }
     
-    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(with type: ReusableViewType, at indexPath: IndexPath) -> T {
-        return dequeueReusableSupplementaryView(ofKind: type.kind,
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(with kind: String, at indexPath: IndexPath) -> T {
+        return dequeueReusableSupplementaryView(ofKind: kind,
                                                 withReuseIdentifier: "\(T.self)",
             for: indexPath) as! T // swiftlint:disable:this force_cast
     }
