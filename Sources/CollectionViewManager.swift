@@ -273,6 +273,17 @@ extension CollectionViewManager {
 // MARK: - Batch updates for section items
 extension CollectionViewManager {
     
+    /// Reload section items animated.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure that either specifies any additional actions which should be performed after replacing.
+    open func reload(completion: Completion? = nil) {
+        let range = Range(uncheckedBounds: (0, collectionView.numberOfSections))
+        collectionView.performBatchUpdates({
+            self.collectionView.reloadSections(IndexSet(integersIn: range))
+        }, completion: completion)
+    }
+    
     /// Inserts one or more section items.
     ///
     /// - Parameters:
